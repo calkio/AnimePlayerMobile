@@ -1,0 +1,46 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35707.178
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{3DDDF648-1462-44B2-ACFB-3FA8DFDF1DFE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BusinessLogic", "BusinessLogic", "{C878176E-A6AD-4E00-86D4-73C3D26A5CB7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{577FBC06-BD2B-4D7D-8284-F469FEB7C3A0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Service", "Service", "{7A8E2A19-566D-4C6D-B640-FD7576F48B86}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{6B9EAA53-2746-43BF-8058-EBB9EA66EA32}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnimePlayer.Core", "AnimePlayer.Core\AnimePlayer.Core.csproj", "{A1E83023-4432-45B1-8355-F3AD11EA5C26}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnimePlayer.UI", "AnimePlayer.UI\AnimePlayer.UI.csproj", "{654FACA6-8ECE-4F0E-86A9-CC17ECA7FD58}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A1E83023-4432-45B1-8355-F3AD11EA5C26}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1E83023-4432-45B1-8355-F3AD11EA5C26}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1E83023-4432-45B1-8355-F3AD11EA5C26}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1E83023-4432-45B1-8355-F3AD11EA5C26}.Release|Any CPU.Build.0 = Release|Any CPU
+		{654FACA6-8ECE-4F0E-86A9-CC17ECA7FD58}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{654FACA6-8ECE-4F0E-86A9-CC17ECA7FD58}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{654FACA6-8ECE-4F0E-86A9-CC17ECA7FD58}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{654FACA6-8ECE-4F0E-86A9-CC17ECA7FD58}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C878176E-A6AD-4E00-86D4-73C3D26A5CB7} = {3DDDF648-1462-44B2-ACFB-3FA8DFDF1DFE}
+		{577FBC06-BD2B-4D7D-8284-F469FEB7C3A0} = {3DDDF648-1462-44B2-ACFB-3FA8DFDF1DFE}
+		{7A8E2A19-566D-4C6D-B640-FD7576F48B86} = {C878176E-A6AD-4E00-86D4-73C3D26A5CB7}
+		{6B9EAA53-2746-43BF-8058-EBB9EA66EA32} = {3DDDF648-1462-44B2-ACFB-3FA8DFDF1DFE}
+		{A1E83023-4432-45B1-8355-F3AD11EA5C26} = {6B9EAA53-2746-43BF-8058-EBB9EA66EA32}
+		{654FACA6-8ECE-4F0E-86A9-CC17ECA7FD58} = {577FBC06-BD2B-4D7D-8284-F469FEB7C3A0}
+	EndGlobalSection
+EndGlobal
