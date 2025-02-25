@@ -72,4 +72,9 @@
 	  </MauiXaml>
 	</ItemGroup>
 
+	<ItemGroup>
+	  <ProjectReference Include="..\AnimePlayer.Core\AnimePlayer.Core.csproj" />
+	  <ProjectReference Include="..\DatabaseService\DatabaseService.csproj" />
+	</ItemGroup>
+
 </Project>

@@ -1,4 +1,9 @@
-﻿using AnimePlayer.UI.View;
+﻿using AnimePlayer.Core.Abstraction.Service.Database;
+using DatabaseService;
+using DatabaseService.AnimeService;
+using DatabaseService.Repositories;
+using Microsoft.EntityFrameworkCore;
+using AnimePlayer.UI.View;
 using Microsoft.Extensions.Logging;
 
 namespace AnimePlayer.UI
@@ -15,6 +20,12 @@ namespace AnimePlayer.UI
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
+
+            // Регистрация базы данных
+            var dbPath = Path.Combine(FileSystem.AppDataDirectory, "Todo.db3");
+            builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlite($"Data Source={dbPath}"));
+            builder.Services.AddScoped<IAnimeRepository, AnimeRepository>();
+            builder.Services.AddScoped<DatabaseAnimeService>();
 
             // Регистрация страницы
             builder.Services.AddTransient<MainPage>();
