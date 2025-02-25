@@ -1,20 +1,21 @@
-﻿namespace AnimePlayer.Core.Model
+﻿namespace AnimePlayer.Core.Domain
 {
     public class Anime
     {
-        public static readonly int MIN_YEAR_RELEASE = 1900;
-        public static readonly int MAX_YEAR_RELEASE = DateTime.Now.Year;
+        public int Id { get; private set; }
+        public string Title { get; private set; }
+        public string? Description { get; private set; }
+        public int YearRelease { get; private set; }
+        public double Rating { get; private set; }
 
-        public static readonly int MIN_RATING = 0;
-        public static readonly int MAX_RATING = 10;
+        public const int MIN_YEAR_RELEASE = 1900;
+        public const int MAX_YEAR_RELEASE = 2100;
+        public const double MIN_RATING = 0;
+        public const double MAX_RATING = 10;
 
+        private Anime() { } // Для EF Core
 
-        public string Title { get; set; } = string.Empty;
-        public string? Description { get; set; } = string.Empty;
-        public int YearRelease { get; set; }
-        public double Rating { get; set; }
-
-        public Anime(string title, string? description, int yearRelease, double rating)
+        private Anime(string title, string? description, int yearRelease, double rating)
         {
             Title = title;
             Description = description;
@@ -22,26 +23,45 @@
             Rating = rating;
         }
 
-        public static (Anime, string error) CreateAnime(string title, string? description, int yearRelease, double rating)
+        public static (Anime anime, string error) Create(
+            string title,
+            string? description,
+            int yearRelease,
+            double rating)
         {
-            string errorString = string.Empty;
+            var errors = new List<string>();
 
-            if (string.IsNullOrEmpty(title))
-            {
-                errorString = "Нет названия аниме";
-            }
-            if (yearRelease > MIN_YEAR_RELEASE && yearRelease <= MAX_YEAR_RELEASE)
-            {
-                errorString = "Год релиза аниме не валидный";
-            }
-            if (rating > MIN_RATING && rating <= MAX_RATING)
-            {
-                errorString = "Рейтинг аниме не валидный";
-            }
+            if (string.IsNullOrWhiteSpace(title))
+                errors.Add("Название аниме обязательно");
 
-            Anime anime = new Anime(title, description, yearRelease, rating);
+            if (yearRelease < MIN_YEAR_RELEASE || yearRelease > MAX_YEAR_RELEASE)
+                errors.Add($"Год релиза должен быть между {MIN_YEAR_RELEASE} и {MAX_YEAR_RELEASE}");
 
-            return (anime, errorString);
+            if (rating < MIN_RATING || rating > MAX_RATING)
+                errors.Add($"Рейтинг должен быть между {MIN_RATING} и {MAX_RATING}");
+
+            if (errors.Any())
+                return (null, string.Join("; ", errors));
+
+            return (new Anime(title, description, yearRelease, rating), null);
+        }
+
+        public (bool success, string error) Update(
+            string title,
+            string? description,
+            int yearRelease,
+            double rating)
+        {
+            var (anime, error) = Create(title, description, yearRelease, rating);
+            if (!string.IsNullOrEmpty(error))
+                return (false, error);
+
+            Title = title;
+            Description = description;
+            YearRelease = yearRelease;
+            Rating = rating;
+
+            return (true, null);
         }
     }
 }

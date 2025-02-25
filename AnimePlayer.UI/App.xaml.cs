@@ -1,10 +1,16 @@
-﻿namespace AnimePlayer.UI
+﻿using DatabaseService;
+
+namespace AnimePlayer.UI
 {
     public partial class App : Application
     {
-        public App()
+        public App(IServiceProvider serviceProvider)
         {
             InitializeComponent();
+
+            using var scope = serviceProvider.CreateScope();
+            var dbContext = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+            dbContext.Database.EnsureCreated();
         }
 
         protected override Window CreateWindow(IActivationState? activationState)
