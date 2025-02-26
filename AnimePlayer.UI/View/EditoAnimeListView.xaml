@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AnimePlayer.UI.View.EditoAnimeListView"
+             Title="EditoAnimeListView">
+
+    <StackLayout Padding="20">
+
+        <Button Text="Перейти к списку аниме"
+                Command="{Binding GoToAnimeListCommand}"/>
+
+        <Button Text="Перейти к списку аниме"
+                Command="{Binding GoToAnimeListCommand}"/>
+    </StackLayout>
+
+</ContentPage>
