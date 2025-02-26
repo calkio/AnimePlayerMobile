@@ -5,6 +5,8 @@ using DatabaseService.Repositories;
 using Microsoft.EntityFrameworkCore;
 using AnimePlayer.UI.View;
 using Microsoft.Extensions.Logging;
+using AnimePlayer.UI.ViewModel;
+using AnimePlayer.UI.View.Base;
 
 namespace AnimePlayer.UI
 {
@@ -27,9 +29,12 @@ namespace AnimePlayer.UI
             builder.Services.AddScoped<IAnimeRepository, AnimeRepository>();
             builder.Services.AddScoped<DatabaseAnimeService>();
 
-            // Регистрация страницы
+            // Регистрация View
             builder.Services.AddTransient<MainPage>();
-            builder.Services.AddTransient<AnimeCard>();
+            builder.Services.AddTransient<AnimeListView>();
+
+            // Регистрация ViewModel
+            builder.Services.AddTransient<AnimeListVM>();
 
 #if DEBUG
             builder.Logging.AddDebug();
