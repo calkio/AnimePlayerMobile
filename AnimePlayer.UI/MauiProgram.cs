@@ -30,12 +30,14 @@ namespace AnimePlayer.UI
             builder.Services.AddScoped<DatabaseAnimeService>();
 
             // Регистрация View
-            builder.Services.AddTransient<MainPage>();
-            builder.Services.AddTransient<AnimeListView>();
+            builder.Services.AddSingleton<MainPage>();
+            builder.Services.AddSingleton<AnimeListView>();
+            builder.Services.AddSingleton<AddAnimeView>();
 
             // Регистрация ViewModel
-            builder.Services.AddTransient<MainPageVM>();
-            builder.Services.AddTransient<AnimeListVM>();
+            builder.Services.AddSingleton<MainPageVM>();
+            builder.Services.AddSingleton<AnimeListVM>();
+            builder.Services.AddSingleton<AddAnimeVM>();
 
 #if DEBUG
             builder.Logging.AddDebug();

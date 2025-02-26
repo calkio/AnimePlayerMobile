@@ -1,5 +1,7 @@
 ﻿using AnimePlayer.Core.Domain;
+using AnimePlayer.UI.View;
 using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 using DatabaseService.AnimeService;
 using System.Collections.ObjectModel;
 
@@ -10,7 +12,7 @@ namespace AnimePlayer.UI.ViewModel
         private readonly DatabaseAnimeService _databaseAnimeService;
         private List<Anime> _allAnimes = new List<Anime>();
 
-        public ObservableCollection<Anime> Animes { get; } = new ObservableCollection<Anime>();
+        public ObservableCollection<Anime> Animes { get; set; } = new ObservableCollection<Anime>();
 
         [ObservableProperty]
         private string searchText;
@@ -20,6 +22,12 @@ namespace AnimePlayer.UI.ViewModel
         {
             _databaseAnimeService = databaseService;
             _ = LoadAnimesAsync();
+        }
+
+        [RelayCommand]
+        public async Task AddAnimeAsync()
+        {
+            await Shell.Current.GoToAsync(nameof(AddAnimeView));
         }
 
         public async Task LoadAnimesAsync()
@@ -47,6 +55,5 @@ namespace AnimePlayer.UI.ViewModel
                 Animes.Add(anime);
             }
         }
-
     }
 }

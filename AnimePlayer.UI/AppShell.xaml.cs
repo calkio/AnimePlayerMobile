@@ -9,6 +9,7 @@ namespace AnimePlayer.UI
             InitializeComponent();
 
             Routing.RegisterRoute(nameof(AnimeListView), typeof(AnimeListView));
+            Routing.RegisterRoute(nameof(AddAnimeView), typeof(AddAnimeView));
         }
     }
 }
