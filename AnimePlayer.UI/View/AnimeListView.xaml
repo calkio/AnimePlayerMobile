@@ -12,11 +12,17 @@
                     <Frame Padding="10" Margin="5" CornerRadius="10" BorderColor="Gray">
                         <Grid ColumnDefinitions="Auto,*" RowDefinitions="Auto,Auto,Auto">
                             <!-- Картинка аниме -->
-                            <Image Source="{Binding ImageUrl}"
-                                   Aspect="AspectFill"
+                            <Image Aspect="AspectFill"
                                    WidthRequest="100"
                                    HeightRequest="100"
-                                   Grid.RowSpan="3" />
+                                   Grid.RowSpan="3">            
+                                <Image.Source>
+                                    <UriImageSource Uri="{Binding ImageUrl}"
+                                                    CachingEnabled="true"
+                                                    CacheValidity="1.00:00:00" />   
+                                </Image.Source>
+                            </Image>
+
 
                             <!-- Название -->
                             <Label Text="{Binding Title}"
@@ -41,7 +47,7 @@
                                 <Label Text="Оценка:" FontSize="Small"/>
                                 <Label Text="{Binding Rating}" FontSize="Small"/>
                                 <Label Text="Год:" FontSize="Small" Margin="10,0,0,0"/>
-                                <Label Text="{Binding Year}" FontSize="Small"/>
+                                <Label Text="{Binding YearRelease}" FontSize="Small"/>
                             </StackLayout>
                         </Grid>
                     </Frame>
