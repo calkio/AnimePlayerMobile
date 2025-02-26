@@ -34,6 +34,7 @@ namespace AnimePlayer.UI
             builder.Services.AddTransient<AnimeListView>();
 
             // Регистрация ViewModel
+            builder.Services.AddTransient<MainPageVM>();
             builder.Services.AddTransient<AnimeListVM>();
 
 #if DEBUG

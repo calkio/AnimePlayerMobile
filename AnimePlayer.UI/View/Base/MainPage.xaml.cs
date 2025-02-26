@@ -1,10 +1,13 @@
-﻿namespace AnimePlayer.UI.View.Base
+﻿using AnimePlayer.UI.ViewModel;
+
+namespace AnimePlayer.UI.View.Base
 {
     public partial class MainPage : ContentPage
     {
-        public MainPage()
+        public MainPage(MainPageVM vm)
         {
             InitializeComponent();
+            BindingContext = vm;
         }
     }
 
