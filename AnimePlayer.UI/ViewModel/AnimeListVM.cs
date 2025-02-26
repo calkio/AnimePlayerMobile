@@ -1,5 +1,4 @@
-﻿using Android.App.Job;
-using AnimePlayer.Core.Domain;
+﻿using AnimePlayer.Core.Domain;
 using CommunityToolkit.Mvvm.ComponentModel;
 using DatabaseService.AnimeService;
 using System.Collections.ObjectModel;
